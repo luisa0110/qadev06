@@ -12,7 +12,6 @@ var doOperations = function(number){
 var getMaxNumber = function(numbers, size){
     if(numbers[size-1]>numbers[size-2])
         return numbers[size-1];
-
 };
 
 
