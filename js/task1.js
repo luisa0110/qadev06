@@ -38,4 +38,32 @@ Calculator.prototype.getMaxNumber = function(numbers){
 };
 
 
+var getMenor = function(collection, cant, mini){
+    if (mini == 0)
+    {
+        var menor = collection[cant-1];
+    }
+    else
+    {
+        var menor = mini;
+    }
+    if(cant > 0) {
+        if(menor < collection[cant-1])
+        {
+
+            return getMenor(collection, cant - 1, menor)
+        }
+        else
+        {
+            menor = collection[cant-1];
+            return getMenor(collection, cant - 1, collection[cant-1])
+        }
+    }
+    else
+    {
+        return menor;
+    }
+
+};
+
 
