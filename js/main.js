@@ -50,3 +50,45 @@ var getMaxNumber = function(numbers, size){
 
 };
 
+
+var regExp = new RegExp("^[0-9]{4}-{1}(([0]{1}[1-9]{1})|([1]{1}[0-2]{1})){1}-{1}(((0|1|2){1}[0-9]{1})|([3]{1}[0-1]{1}))$");
+
+//regExp.test(1991-10-01);
+//regExp.test(199-10-01);
+//regExp.test(1991-13-01);
+//regExp.test(1991-10-32);
+//regExp.test(1991-10-0);
+//regExp.test(1991-0-11);
+
+function getFirstCapicua(limitSup, limitInf){
+
+}
+
+var isCapicua = function(num){
+    var colletionNumbers = '';
+    var numAux = num;
+    var index = 0;
+    // var char;
+    while(numAux > 0) {
+        numAux = parseInt(numAux);
+        if(numAux % 10 != 0)
+        { colletionNumbers = colletionNumbers + numAux % 10;
+            index ++;
+        }
+        numAux = numAux / 10;
+
+    }
+    colletionNumbers = colletionNumbers.split('');
+    colletionNumbers = colletionNumbers.reverse();
+    if (Number(colletionNumbers) == num)
+    {
+        console.log('si');
+    }
+    else
+    {
+        console.log('no');
+    }
+    // for(int i = 0; i< colletionNumbers.length)
+    //   console.log(num);
+    // console.log(colletionNumbers,  index);
+}
