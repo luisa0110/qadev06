@@ -60,9 +60,9 @@ var regExp = new RegExp("^[0-9]{4}-{1}(([0]{1}[1-9]{1})|([1]{1}[0-2]{1})){1}-{1}
 //regExp.test(1991-10-0);
 //regExp.test(1991-0-11);
 
-function getFirstCapicua(limitSup, limitInf){
-
-}
+//function getFirstCapicua(limitSup, limitInf){
+//
+//}
 
 var isCapicua = function(num){
     var colletionNumbers = '';
@@ -91,4 +91,31 @@ var isCapicua = function(num){
     // for(int i = 0; i< colletionNumbers.length)
     //   console.log(num);
     // console.log(colletionNumbers,  index);
+}
+
+function reverseString(value){
+    //
+    var size = value.length - 1;
+    var reverseS = '';
+    while( size >= 0 ) {
+        reverseS = reverseS + value[size];
+        size--;
+    }
+    console.log(value);
+    console.log(reverseS);
+}
+
+function factorial(number){
+    if(typeof(number)==="number"){
+        if(number)
+        var fact = 1;
+        if(number === 0)
+            return fact;
+        while(number > 0){
+            fact = fact*number;
+            number--;
+        }
+        return fact;
+    }
+
 }

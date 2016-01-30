@@ -1,69 +1,129 @@
 /**
  * Created by mariaalcocer on 1/25/2016.
  */
+/**
+ * This is the class calculator
+ * @constructor
+ */
 function Calculator(){
-    this.major = 0;
 }
+/**
+ * This function is to calculate maximun, minimum, average and sum
+ */
 Calculator.prototype.doOperations = function(){
-    var number = arguments;
-    console.log('MAX is', this.getMaxNumber(number));
-    //console.log('MIN is', getMinNumber());
-    //console.log('AVERAGE is', getAvgerage());
-    //console.log('SUM', getSum());
+    if(arguments.length != 0){
+        console.log('The Max number is '+this.getMaxNumber(arguments));
+        console.log('The MIN number is '+ this.getMinNumber(arguments));
+        console.log('The AVERAGE is', this.getAvgNumber(arguments));
+        console.log('The SUM is', this.getSumNumber(arguments));
+    }
+
+    else
+        console.log("There is not values entered");
 };
 
-Calculator.prototype.getMaxNumber = function(numbers){
-    var collection =[];
-    collection = numbers;
-    Calculator.prototype.getMax = function(collection, size, max){
-        var major = majorNumber;
-        if(size >= 0) {
-            if(major > collection[cant-1])
-            {
-
-                return this.getMax(collection, cant - 1, major)
+/**
+ * This function is to get the max number
+ * @returns {max number}
+ */
+Calculator.prototype.getMaxNumber = function(){
+    function getMax (collection, size, major){
+        var max = major;
+        if(size > 0){
+            if(max < collection[size]){
+                max = collection[size];
+                return getMax(collection, size - 1, max);
             }
-            else
-            {
-                major = collection[cant-1];
-                return this.getMax(collection, cant - 1, collection[cant-1])
-            }
+            return getMax(collection, size - 1, max);
+        }
+        return (max < collection[size])? collection[size]:max;
+    }
+    if(arguments.length  === 0)
+        console.log("There is not values entered");
+    else{
+        if(arguments.length ===1){
+            if(typeof(arguments[0])=="number")
+                console.log('The Max number is '+getMax(arguments, arguments.length - 1,arguments[arguments.length - 1]));
+            return getMax(arguments[0], arguments[0].length - 1,arguments[0][arguments[0].length - 1]);
         }
         else
-        {
-            return major;
+            console.log('The Max number is '+ getMax(arguments, arguments.length - 1,arguments[arguments.length - 1]));
+    }
+};
+
+/**
+ * This function is to calculate the sum
+ * @returns {the total sum}
+ */
+Calculator.prototype.getSumNumber = function(){
+    function getSum (collection, size){
+        return (size > 0)? collection[size] + getSum(collection,size-1):collection[size];
+    }
+    if(arguments.length  === 0)
+        console.log("There is not values entered");
+    else{
+        if(arguments.length ===1){
+            if(typeof(arguments[0])=="number")
+                console.log('The Sum is '+getSum(arguments, arguments.length - 1));
+            return getSum(arguments[0], arguments[0].length - 1);
+        }
+        console.log('The Sum is '+ getSum(arguments, arguments.length - 1));
+    }
+};
+
+/**
+ * This function is to get the min number
+ * @returns {min}
+ */
+Calculator.prototype.getMinNumber = function(){
+    function getMin (collection, size, minor){
+        var min = minor;
+        if(size > 0){
+            if(min > collection[size]){
+                min = collection[size];
+                return getMin(collection, size - 1, min);
+            }
+                return getMin(collection, size - 1, min);
+        }
+        return (min < collection[size])?min: collection[size];
+    }
+    if(arguments.length  === 0)
+        console.log("There is not values entered");
+    else{
+        if(arguments.length ===1){
+            if(typeof(arguments[0])=="number"){
+                console.log('The Min number is '+getMin(arguments, arguments.length - 1,arguments[arguments.length - 1]));
+            }
+                return getMin(arguments[0], arguments[0].length - 1,arguments[0][arguments[0].length - 1]);
+        }
+        console.log('The Min number is '+ getMin(arguments, arguments.length - 1,arguments[arguments.length - 1]));
+    }
+};
+
+/**
+ * This function is to calculate the average
+ * @returns {average}
+ */
+Calculator.prototype.getAvgNumber = function(){
+    function getAvg (collection, size){
+        if(size == collection.length -1 )
+            return (collection[size] + getAvg(collection,size-1))/ collection.length;
+        else{
+            return (size > 0)?collection[size] + getAvg(collection,size-1):collection[size];
         }
     }
-    return var Max = this.getMax(collection, collection.length - 1, collection[collection.length - 1]);
+    if(arguments.length  === 0)
+        console.log("There is not values entered");
+    else{
+        if(arguments.length ===1){
+            if(typeof(arguments[0])=="number"){
+                console.log('The Average is '+getAvg(arguments, arguments.length - 1,arguments[arguments.length - 1]));
+            }return getAvg(arguments[0], arguments[0].length - 1,arguments[0][arguments[0].length - 1]);
+        }
+        console.log('The Average is '+ getAvg(arguments, arguments.length - 1,arguments[arguments.length - 1]));
+    }
 };
 
 
-var getMenor = function(collection, cant, mini){
-    if (mini == 0)
-    {
-        var menor = collection[cant-1];
-    }
-    else
-    {
-        var menor = mini;
-    }
-    if(cant > 0) {
-        if(menor < collection[cant-1])
-        {
-
-            return getMenor(collection, cant - 1, menor)
-        }
-        else
-        {
-            menor = collection[cant-1];
-            return getMenor(collection, cant - 1, collection[cant-1])
-        }
-    }
-    else
-    {
-        return menor;
-    }
-
-};
 
 
