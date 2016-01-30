@@ -1,17 +1,13 @@
 /**
  * Created by mariaalcocer on 1/25/2016.
  */
-/**
- * This is the class calculator
- * @constructor
- */
 function Calculator(){
 }
 /**
  * This function is to calculate maximun, minimum, average and sum
  */
 Calculator.prototype.doOperations = function(){
-    if(arguments.length != 0){
+    if(arguments.length !== 0){
         console.log('The Max number is '+this.getMaxNumber(arguments));
         console.log('The MIN number is '+ this.getMinNumber(arguments));
         console.log('The AVERAGE is', this.getAvgNumber(arguments));
@@ -83,7 +79,7 @@ Calculator.prototype.getMinNumber = function(){
                 min = collection[size];
                 return getMin(collection, size - 1, min);
             }
-                return getMin(collection, size - 1, min);
+            return getMin(collection, size - 1, min);
         }
         return (min < collection[size])?min: collection[size];
     }
@@ -94,7 +90,7 @@ Calculator.prototype.getMinNumber = function(){
             if(typeof(arguments[0])=="number"){
                 console.log('The Min number is '+getMin(arguments, arguments.length - 1,arguments[arguments.length - 1]));
             }
-                return getMin(arguments[0], arguments[0].length - 1,arguments[0][arguments[0].length - 1]);
+            return getMin(arguments[0], arguments[0].length - 1,arguments[0][arguments[0].length - 1]);
         }
         console.log('The Min number is '+ getMin(arguments, arguments.length - 1,arguments[arguments.length - 1]));
     }
