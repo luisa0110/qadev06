@@ -93,6 +93,35 @@ var isCapicua = function(num){
     // console.log(colletionNumbers,  index);
 }
 
+var countWords = function(paragraph){
+    var counter = 1;
+    for(var i = 0; i < paragraph.length; i++)
+    {
+        if(paragraph[i] == ' ')
+            counter++;
+    }
+    return counter;
+};
+
+
+var currentDate = function (){
+    var day = new Date();
+    switch (value){
+        case 0: day = 'Monday';
+            break;
+        case 1: day = 'Tuesday';
+            break;
+        case 2: day = 'Wednesday';
+            break;
+        case 3: day = 'Thursday';
+            break;
+        case 4: day = 'Friday';
+
+    }
+    console.log('Today is:'  + day.getDay());
+};
+
+
 function reverseString(value){
     //
     var size = value.length - 1;
