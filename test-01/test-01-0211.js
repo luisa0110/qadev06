@@ -116,7 +116,7 @@ JSTest.prototype.evalParagraph = function (paragraph, letter){
             console.log('Word: ' + paragr[i]);
         }
     }
-    count == 0? console.log('Not found word with that letter'): console.log('Count is: '+count);
+    count === 0? console.log('Not found word with that letter'): console.log('Count is: '+count);
 };
 JSTest.prototype.findLetter = function (word, letter){
     for(var i = 0; i < word.length; i++){
