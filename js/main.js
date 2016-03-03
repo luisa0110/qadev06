@@ -92,3 +92,4 @@ var isCapicua = function(num){
     //   console.log(num);
     // console.log(colletionNumbers,  index);
 }
+
